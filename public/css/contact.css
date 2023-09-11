@@ -1,0 +1,28 @@
+#nameError {
+  display: none;
+  font-size: 0.8em;
+}
+
+#nameError.visible {
+  display: block;
+}
+#emailError {
+  display: none;
+  font-size: 0.8em;
+}
+
+#emailError.visible {
+  display: block;
+}
+#messageError {
+  display: none;
+  font-size: 0.8em;
+}
+
+#messageError.visible {
+  display: block;
+}
+
+.invalid {
+  border-color: red;
+}

@@ -1,0 +1,122 @@
+<% layout('boilerplate') -%>
+
+
+
+<section id="showcase" >
+  <div class="container text-center">
+    <div class="home-search p-lg-5">
+      <div class="overlay p-lg-5">
+        <h1 class="display-4 mb-4">
+          Campground Searching Just Got So Easy
+        </h1>
+        <p class="lead">Whether you're a seasoned explorer or a novice adventurer, AdventCamp provides a dynamic platform to fuel your passion for the great outdoors.</p>
+        <div class="search">
+          <form action="/campgrounds">
+            <!-- Form Row 1 -->
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label class="sr-only" for="keywords">Keywords</label>
+                <input type="text" id="keywords" name="keywords" class="form-control" placeholder="Keyword (Bushes, Campfire, etc)">
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="sr-only" for="title">Title</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Title">
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="sr-only"  for="state">State</label>
+                <select name="state" disabled id="state" class="form-control">
+                  <option selected="true" disabled="disabled">Select your preferred state</option>
+                  {% for key,value in states.items %}
+                  <option value="{{ key }}">{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <!-- Form Row 2 -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="sr-only" for="country">Country</label>
+                <select name="country" disabled id="country" class="form-control ">
+                  <option selected="true" disabled="disabled" class="text-secondary"><span class="text-secondary">Select your preferred country</span></option>
+                  <option value="Nigeria">Nigeria</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="sr-only" for="price">Price</label>
+                <input type="number"name="price" id="price" class="form-control" placeholder="Input maximum price">
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<marquee behavior="slide" direction="left" class="my-3">
+  <h1>All Campgrounds</h1>
+</marquee>
+
+<div class="d-none d-md-block" id="map" style="width: 100%; height: 500px;"></div>
+
+
+  
+    <!-- <h1>All Campgrounds</h1> -->
+
+
+    <div class="container my-3">
+        <div class="row gy-3">
+            <% for (let campground of campGrounds) { %>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card " >
+                        <img crossorigin="anonymous"  src="<%= campground.images[0].display %>" class="card-img-top mx-auto d-block" alt="image"style="object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= campground.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%=campground.description%>.
+                            </p>
+                            <p class="card-text"><small class="text-muted">
+                                    <%= campground.location%>
+                                </small></p>
+                            <a href="campgrounds/<%= campground._id %>" class="btn btn-primary">Show More</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    <a href="/campgrounds/new" class="btn btn-success my-3">
+        <h1>add new campground</h1>
+    </a>
+     <script>
+    const  mapToken = '<%- process.env.MAPBOX_TOKEN %>'
+    const campgrounds ={ features:<%-JSON.stringify(campGrounds)%>}
+     </script>
+     <script src="/javascript/mapcluster.js"></script>

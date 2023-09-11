@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <title>
+    <%= who %>
+  </title>
+  <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/" >
+                <img src="/my-personal-logo.png"  id="logo"alt="logo">
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/campgrounds">Campgounds</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <% if (!currentUser) {%>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                    <% }else{ %>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                    <% } %>
+
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100"> 
+            <div class="row gx-4 gx-lg-5  align-items-center justify-content-center text-center" style="height: 60vh; width: 100%;">
+                <div class="col-lg-8 align-self-end" style=" width: 100%;">
+                    <h1 class="text-white font-weight-bold"  style=" width: 100%;">Welcome to AdventCamp</h1>
+                    <hr class="divider" style="background-color:  #ee2e2e;"/>
+                </div>
+                <div class="col-lg-8 align-self-baseline"style=" width: 100%;">
+                    <p class="text-white-75 mb-5" style=" width: 100%;">Unleash your wanderlust, connect with fellow outdoor enthusiasts, and create memories that will last a lifetime. Start your journey today, because the best adventures begin in nature's embrace.
+                    </p>
+                    <a class="btn btn-primary btn-xl btnhome" style="background-color:  #ee2e2e;" href="/campgrounds">see campgrounds</a>
+                </div>
+            </div>
+        </div>
+    </header>
+      <!-- About-->
+      <section class="page-section bg-primary " id="about" style="background-color:  #ee2e2e;">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center"style=" width: 100%;">
+                    <h2 class="text-white mt-0 about-head" >We've got what you need!</h2>
+                    <hr class="divider divider-light" />
+                    <p class="text-white-75 mb-4 about-text">Our interactive website empowers outdoor enthusiasts to easily locate and contribute campgrounds across the world. Whether you're a seasoned adventurer or a first-time camper, AdventCamp offers a user-friendly platform to find the perfect spot to pitch your tent, park your RV, or set up camp under the stars.
+
+                        Our community-driven approach allows users to share their favorite camping spots, ensuring that you'll always have access to the best-kept secrets and hidden gems.</p>
+                    <a class="btn btn-light btn-xl" href="/campgrounds">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container-fluid bg-dark mt-auto mb-1 " >
+        <div class="row">
+       <small class=" text-center my-3" style="color: whitesmoke;">&copy; The yelpcamp project for 2023.</small>
+    </div>
+    </footer>
+
+
+
+    <script src="/javascript/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+       crossorigin="anonymous"></script>
+
+</body>
+</html>

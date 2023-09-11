@@ -1,0 +1,33 @@
+input{
+    font-size: 1.2rem !important;
+}
+/* section{
+    max-height: 90vh;
+} */
+@media (max-width: 992px) {
+    section {
+        min-width: 100vw;
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 700px) {
+    section {
+
+        font-size: 15px;
+    }
+
+    div#bgimg {
+        display: none !important;
+        
+    }
+    div#signup{
+        margin-top: 0px !important;
+    }
+    h2.fw-bold{
+        margin-bottom: 2rem !important;
+    }
+    
+
+}

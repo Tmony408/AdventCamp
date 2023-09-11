@@ -1,0 +1,135 @@
+<% layout('boilerplate') -%>
+<link crossorigin="anonymous"  rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<link crossorigin="anonymous"  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link  crossorigin="anonymous" rel="stylesheet" href="/css/user.css">
+
+<!-- <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">
+ -->
+
+<!-- <div class="row">
+    <h1 class="text-center">Login</h1>
+    <div class="col-md-6 col-8  offset-md-3 offset-2 mx-auto">
+        <form action="/login" method="post" class="validated-form" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" required id="username" placeholder="enter your username"
+                    name="username">
+                <div class="invalid-feedback">
+                    Please enter a username in the text area.
+                </div>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" required id="password" placeholder="enter your password "
+                    name="password">
+                <div class="invalid-feedback">
+                    Please enter a password in the text area.
+                </div>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <button class="btn btn-success" type="submit">login</button>
+        </form>
+    </div>
+</div> -->
+
+
+<section  class="text-center">
+  <!-- Background image -->
+  <div id="bgimg" class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 300px;
+        "></div>
+  <!-- Background image -->
+
+  <div id="signup" class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-3 py-md-5 px-md-5">
+  
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5 "style="font-size: 2em;">Sign in now</h2>
+            <form  action="/login" method="post" class="validated-form" novalidate>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+  
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="username"style="font-size: 1.2em;">Username</label>
+                <input type="text" class="form-control" required id="username" placeholder="enter username"
+                name="username" />
+                
+                <div class="invalid-feedback">
+                    Please enter a username in the text area.
+                </div>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+              </div>
+  
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password"style="font-size: 1.2em;">Password</label>
+                <input type="password"  class="form-control" required id="password" placeholder="enter your password " name="password"/>
+                
+                <div class="invalid-feedback">
+                    Please enter a password in the text area.
+                </div>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+              </div>
+  
+              <!-- Checkbox -->
+              <!-- <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                <label class="form-check-label" for="form2Example33">
+                  Subscribe to our newsletter
+                </label>
+              </div>
+   -->
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">
+                Sign in
+              </button>
+  
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>or sign up with:</p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+  
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <a href="/auth/google"><i class="fab fa-google"></i></a> 
+                </button>
+  
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+  
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+  <!-- <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script> -->
+<script crossorigin="anonymous"  type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+<!-- <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script> -->

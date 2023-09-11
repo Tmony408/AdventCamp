@@ -1,0 +1,104 @@
+<% layout('boilerplate') -%>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+ 
+<style>
+#geocoder {
+z-index: 1;
+margin: 20px;
+}
+.mapboxgl-ctrl-geocoder {
+min-width: 100%;
+}
+</style>
+    <!-- <h1>Create new Campground</h1>
+    <form action="/all-campgrounds" method="post">
+        <label for="title">Title</label>
+        <input type="text" required id="title" placeholder="enter name of campground" name="title">
+        <label for="location">Location</label>
+        <input type="text" id="location"required placeholder="enter the location" name="location">
+        <label for="location">Image </label>
+        <input type="text" id="ImageUrl"required placeholder="Image Url" name="imageUrl">
+        <label for="location">Description</label>
+       <textarea name="description" id="desciption" cols="30" rows="10" placeholder="enter description"></textarea>
+        <label for="price"></label>
+        <input type="number" name="price" id="price">
+       <button type="submit">add Campground</button>
+    </form> -->
+
+    <div class="row">
+        <h1 class="text-center my-3" >Add new Campground</h1>
+        <div class="col-md-6 col-8  offset-md-3 offset-2 mx-auto">
+            <form action="/campgrounds" method="post" class="validated-form my-3" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" required id="title" placeholder="enter name of campground"
+                        name="title">
+                    <div class="invalid-feedback">
+                        Please enter a title in the text area.
+                    </div>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" required placeholder="enter the location"
+                        name="location">
+                    <div class="invalid-feedback">
+                        Please enter the location in the text area.
+                    </div>
+
+                </div>
+
+                <div id="geocoder"></div>
+                <pre id="result"></pre>
+                <div class="mb-3">
+                    <label class="form-label" for="geocoder">Location</label>
+                    <div id="geocoder"></div>
+                    <pre id="result"></pre>
+                    <div class="invalid-feedback">
+                        Please enter the location in the text area.
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="images">Image </label>
+                    <input class="form-control" type="file" id="Images" required
+                        name="images" multiple>
+                    <div class="invalid-feedback">
+                        Please add images.
+                    </div>
+                   
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <div class="input-group">
+                        <div class="input-group-text">$</div>
+                        <input class="form-control" type="number" required name="price" id="price" placeholder="0.00">
+                        <div class="invalid-feedback">
+                            Please enter a valid price.
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Description</label>
+                    <textarea class="form-control" name="description" required id="desciption" cols="30" rows="3"
+                        placeholder="enter description"></textarea>
+                    <div class="invalid-feedback">
+                        Please enter a description in the textarea.
+                    </div>
+
+                </div>
+                <script src="/javascript/validator.js"></script>
+
+                <button class="btn btn-success" type="submit">add Campground</button>
+            </form>
+        </div>
+    </div>
+   <script>
+    const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
+   </script>
+<script src="/javascript/location.js"></script>
+   
