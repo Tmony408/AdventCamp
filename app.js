@@ -27,14 +27,16 @@ const homeRoutes = require('./routers/homeRoutes')
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const dbUrl = process.env.DB_URL
+const MongoStore = require('connect-mongo');
 // =============================================================================================
 //==============================================================================================
 
 
 
-
+// 'mongodb://localhost:27017/yelp-camp' 
 // mongoose set up here
-mongoose.connect('mongodb://localhost:27017/yelp-camp');
+mongoose.connect('mongodb://localhost:27017/yelp-camp' ); 
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -63,10 +65,20 @@ app.use(mongoSanitize());
 // =============================================================================================
 //==============================================================================================
 
-
-
+// mongodb store session 
+const store = MongoStore.create({
+    mongoUrl: 'mongodb://localhost:27017/yelp-camp' ,
+    touchAfter: 24 * 3600, // time period in seconds
+    crypto: {
+        secret: 'this is my first session'
+    }
+  })
+  store.on("error", function(e){
+    console.log('session store error')
+  })
 // Session and flash
 const sessionConfig= {
+    store,
     name: 'mapsload',
     secret : 'this is my first session',
     resave: true,
