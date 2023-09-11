@@ -36,7 +36,7 @@ const MongoStore = require('connect-mongo');
 
 // 'mongodb://localhost:27017/yelp-camp' 
 // mongoose set up here
-mongoose.connect('mongodb://localhost:27017/yelp-camp' ); 
+mongoose.connect(dbUrl); 
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -67,7 +67,7 @@ app.use(mongoSanitize());
 
 // mongodb store session 
 const store = MongoStore.create({
-    mongoUrl: 'mongodb://localhost:27017/yelp-camp' ,
+    mongoUrl: dbUrl ,
     touchAfter: 24 * 3600, // time period in seconds
     crypto: {
         secret: 'this is my first session'
