@@ -27,7 +27,7 @@ const homeRoutes = require('./routers/homeRoutes')
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
-const dbUrl = process.env.DB_URL
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'
 const MongoStore = require('connect-mongo');
 // =============================================================================================
 //==============================================================================================
@@ -64,13 +64,13 @@ app.use(methodOverride('_method'));
 app.use(mongoSanitize());
 // =============================================================================================
 //==============================================================================================
-
+const secret = process.env.SECRET || 'this is my first session'
 // mongodb store session 
 const store = MongoStore.create({
     mongoUrl: dbUrl ,
     touchAfter: 24 * 3600, // time period in seconds
     crypto: {
-        secret: 'this is my first session'
+        secret
     }
   })
   store.on("error", function(e){
@@ -80,7 +80,7 @@ const store = MongoStore.create({
 const sessionConfig= {
     store,
     name: 'mapsload',
-    secret : 'this is my first session',
+    secret ,
     resave: true,
     saveUninitialized: true,
     cookieName:'session',
@@ -169,9 +169,9 @@ app.use((err, req, res, next) => {
 // =============================================================================================
 //==============================================================================================
 
+const port =  process.env.PORT || 3000
 
 
-
-app.listen(3000, () => {
-    console.log('port 3000')
+app.listen(port, () => {
+    console.log('port '+ port)
 })
