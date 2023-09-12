@@ -76,7 +76,8 @@
             <% for (let campground of campGrounds) { %>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card " >
-                        <img crossorigin="anonymous"  src="<%= campground.images[0].display %>" class="card-img-top mx-auto d-block" alt="image"style="object-fit: cover;">
+                      
+                        <img crossorigin="anonymous"  src="<%= campground.images[0].display ||'https://res.cloudinary.com/dqggjx029/image/upload/v1694486266/Yelp-Camp/edjkcbimogomzooj3j34.jpg' %> " class="card-img-top mx-auto d-block" alt="image"style="object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <%= campground.title %>

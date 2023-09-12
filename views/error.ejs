@@ -3,9 +3,6 @@
     
     <h1 class="error-code" style="font-size: 20rem;"><span class=""><%= status %></span></h1>
     <p>Oops! <%= message %>!</p>
-    <% if (process.env.NODE_ENV !== "production") { %>
-      <p><%= err.stack %></p>
-      <% } %>
     <a href="/campgrounds" class="btn-outline"> Back to Home</a>
 </div>
 

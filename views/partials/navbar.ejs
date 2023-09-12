@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link  <%-  link === '/' ? 'active': '' %> " aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
+          <a class="nav-link <%-  link === '/contact' ? 'active': '' %>" href="/contact">Contact</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -19,8 +19,8 @@
             Campground
           </a>
           <ul class="dropdown-menu bg-dark" id="dropdown" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item " href="/campgrounds">View All Campgrounds</a></li>
-            <li><a class="dropdown-item " href="/campgrounds/new"> Add Campground</a></li>
+            <li><a class="dropdown-item <%-  link === '/campgrounds' ? 'active': '' %>" href="/campgrounds">View All Campgrounds</a></li>
+            <li><a class="dropdown-item <%- link === '/campgrounds/new' ? 'active': '' %>" href="/campgrounds/new"> Add Campground</a></li>
             <!-- <li><hr class="dropdown-divider text-light"></li>
               <li><a class="dropdown-item text-light" href="#">Something else here</a></li> -->
           </ul>
@@ -35,10 +35,10 @@
       <ul class="d-flex navbar-nav  mx-2 mb-2 mb-lg-0">
        
         <% if (!currentUser) {%>
-          <a class="nav-link " href="/register">Register</a>
+          <a class="nav-link <%-  link === '/register' ? 'active': '' %> " href="/register">Register</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link " href="/login" >Login</a>
+          <a class="nav-link <%-  link === '/login' ? 'active': '' %> " href="/login" >Login</a>
         </li>
           <% }else{ %>
             <li class="nav-item ">

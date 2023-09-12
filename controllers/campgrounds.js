@@ -13,13 +13,14 @@ module.exports.viewAllCampgrounds = async (req, res) => {
     const keywords = req.query.keywords || ''
     const country = req.query.country || ''
     const price = req.query.price || 1000
-    const campGrounds = await (await Campground.find({
+    const campGrounds = await Campground.find({
         title: { $regex: title, $options: "i" },
         description: { $regex: keywords, $options: "i" },
         location: { $regex: country, $options: "i" },
     }).
         where('price').
-        lte(price))
+        lte(price).
+        sort('-createdDate')
 
 
     for (let campGround of campGrounds) {

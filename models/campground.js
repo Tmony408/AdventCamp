@@ -15,7 +15,7 @@ ImageSchema.virtual('thumbnail').get(function(){
     return this.filePath.replace('/upload' , '/upload/w_200')
 });
 ImageSchema.virtual('display').get(function(){
-    return this.filePath.replace('/upload' , '/upload/w_1920,h_1080,b_black,c_pad')
+    return this.filePath.replace('/upload' , '/upload/w_1920,h_1280,b_black,c_pad')
 })
 
 const campgroundSchema = new Schema({
