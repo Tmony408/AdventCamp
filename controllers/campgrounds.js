@@ -4,7 +4,8 @@ const mapBoxToken = process.env.MAPBOX_TOKEN
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
 
 
-const { cloudinary } = require('../cloudinary/index')
+const { cloudinary } = require('../cloudinary/index');
+const flash = require('express-flash');
 
 
 module.exports.viewAllCampgrounds = async (req, res) => {
@@ -62,6 +63,9 @@ module.exports.createCampground = async (req, res) => {
 
     campGround = new Campground(req.body);
     campGround.geometry = geoData.body.features[0].geometry
+    if(!campground.geometry){
+        req.flash('error', 'Location does not exist. Input an accurate location')
+    }
     campGround.images = req.files.map(f => ({ fileName: f.filename, filePath: f.path }))
     campGround.author = req.user._id
     await campGround.save();
@@ -82,7 +86,7 @@ module.exports.editCampground = async (req, res) => {
         query: location,
         limit: 1
     }).send()
-
+ 
     const campGround = await Campground.findByIdAndUpdate(id, req.body, { runValidators: true });
     campGround.geometry = geoData.body.features[0].geometry
     imgs = req.files.map(f => ({ fileName: f.filename, filePath: f.path }))
