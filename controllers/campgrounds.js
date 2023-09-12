@@ -63,7 +63,7 @@ module.exports.createCampground = async (req, res) => {
 
     campGround = new Campground(req.body);
     campGround.geometry = geoData.body.features[0].geometry
-    if(!campground.geometry){
+    if(!campGround.geometry){
         req.flash('error', 'Location does not exist. Input an accurate location')
     }
     campGround.images = req.files.map(f => ({ fileName: f.filename, filePath: f.path }))
